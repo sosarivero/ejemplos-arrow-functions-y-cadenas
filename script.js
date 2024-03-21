@@ -2,7 +2,7 @@
 // Las funciones que usamos como argumento dentro de otra función se llaman 'callback function'.
 // Las funciones que creamos pero no asociamos a un nombre de variable son anónimas (anonymous function).
 // Map, filter y sort usan funciones como argumentos (es decir, usan callback functions).
-// Es común usar funciones anónimas como callback functions, ya que en muchas ocasiones solo vamos a necesitar usarlas dentro de ese map, filter o sort específicos.
+// Es común usar funciones anónimas como callback functions cuando solo vamos a usarlas dentro de ese map, filter o sort específicos.
 
 // A continuación se muestra tres funciones. Todas hacen EXACTAMENTE lo mismo, usando filter y sort.
 // En los dos primeros ejemplos la única diferencia es la forma en la que las funciones anónimas están escritas dentro de los filters y sorts. 
@@ -49,7 +49,8 @@ function conFlechas(articulos, presupuesto) {
 }
 
 // EJEMPLO 3) También usa arrows, pero todo es en una sola línea, encadenando funciones así: array.filter().filter().sort()
-// Si no lo entiendes no pasa nada, solo es un ejemplo demostrativo de lo que es encadenar funciones. Normalmente se usa con cosas más cortas para que sea fácil de leer.
+// Si no lo entiendes no pasa nada, solo es un ejemplo demostrativo de lo que es encadenar funciones.
+// Normalmente se usa con cosas más cortas para que sea fácil de leer.
 // El resumen de lo que está pasando, no es más que esto: array.filter().filter().sort()
 
 function unaSolaCadenaConFlechas(articulos, presupuesto) {
