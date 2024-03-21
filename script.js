@@ -1,17 +1,28 @@
-// Las tres funciones son exactamente iguales, pero con sintaxis distinta. Para ejemplificar lo que son las arrow functions, y el encadenar funciones.
+// RECORDATORIO DE QUÉ SON CALLBACK FUNCTIONS Y ANONYMOUS FUNCTIONS:
+// Las funciones que usamos como argumento dentro de otra función se llaman 'callback function'.
+// Las funciones que creamos pero no asociamos a un nombre de variable son anónimas (anonymous function).
+// Map, filter y sort usan funciones como argumentos (es decir, usan callback functions).
+// Es común usar funciones anónimas como callback functions, ya que en muchas ocasiones solo vamos a necesitar usarlas dentro de ese map, filter o sort específicos.
+
+// A continuación se muestra tres funciones. Todas hacen EXACTAMENTE lo mismo, usando filter y sort.
+// En los dos primeros ejemplos la única diferencia es la forma en la que las funciones anónimas están escritas dentro de los filters y sorts. 
+// El tercer ejemplo es para demostrar el cómo se encadenan funciones.
+
+// EJEMPLO 1) Forma 'básica' de escribir funciones anónimas. Es igual a cuando escribimos una función no-anónima. El formato es:
+// function (<argumento>) { <código a ejecutar> }
 
 function ropaAccesoriosComprables(articulos, presupuesto) {
-  // Primero filtra todos los artículos en función de si sus precios son menores al presupuesto
+  // Primero filtra todos los artículos en función de si sus precios son menores al presupuesto.
   const comprables = articulos.filter(function (articulo) {
     return articulo.precio < presupuesto;
   });
   
-  // Filtra el resultado anterior, esta vez según si su categoría es 'Ropa' o 'Accesorios'
+  // Filtra el resultado anterior. Esta vez según filtra artículos que tengan el valor "Ropa" o "Accesorios" en su clave accesorios.
   const ropaAccesorios = comprables.filter(function (articulo) {
     return articulo.categoria === "Ropa" || articulo.categoria === "Accesorios";
   });
 
-  // Ahora el resultado anterior según sus fechas
+  // Ordena el resultado anterior según sus fechas.
   const ordenadosPorFecha = ropaAccesorios.sort(function (a, b) {
     return a.fecha - b.fecha;
   });
@@ -19,29 +30,34 @@ function ropaAccesoriosComprables(articulos, presupuesto) {
   return ordenadosPorFecha;
 }
 
-// Misma función, pero usando arrow functions dentro de los filters y el sort. (=>)
+// EJEMPLO 2) Misma función, pero usando arrow functions para escribir funciones anónimas.
+// Una arrow function no es más que una manera un poco más corta y concisa de escribirlas. Funciona exactamente igual.
+// Fíjate que no hace falta ni escribir 'function' ni usar llaves "{}". Así hace que sea más fácil de leer. El formato es:
+// (<argumento>) => <código a ejecutar>
 
 function conFlechas(articulos, presupuesto) {
-  // Primero filtra todos los artículos en función de si sus precios son menores al presupuesto
+  // Primero filtra todos los artículos en función de si sus precios son menores al presupuesto.
   const comprables = articulos.filter((articulo) => articulo.precio < presupuesto);
 
-  // Filtra el resultado anterior, esta vez según si su categoría es 'Ropa' o 'Accesorios'
+  // Filtra el resultado anterior. Esta vez según filtra artículos que tengan el valor "Ropa" o "Accesorios" en su clave accesorios.
   const ropaAccesorios = comprables.filter((articulo) => articulo.categoria === "Ropa" || articulo.categoria === "Accesorios");
 
-  // Ahora el resultado anterior según sus fechas
+  // Ordena el resultado anterior según sus fechas.
   const ordenadosPorFecha = ropaAccesorios.sort((a, b) => a.fecha - b.fecha);
 
   return ordenadosPorFecha;
 }
 
-// Misma función, pero todo es en una sola línea, encadenando funciones así: array.filter().filter().sort()
-// Hay formas de ponerlo en varios líneas para que sea más legible, pero lo dejo en una sola para que el ejemplo sea más visual.
+// EJEMPLO 3) También usa arrows, pero todo es en una sola línea, encadenando funciones así: array.filter().filter().sort()
+// Si no lo entiendes no pasa nada, solo es un ejemplo demostrativo de lo que es encadenar funciones. Normalmente se usa con cosas más cortas para que sea fácil de leer.
+// El resumen de lo que está pasando, no es más que esto: array.filter().filter().sort()
+
 function unaSolaCadenaConFlechas(articulos, presupuesto) {
   return articulos.filter((articulo) => articulo.precio < presupuesto).filter((articulo) => articulo.categoria === "Ropa" || articulo.categoria === "Accesorios").sort((a, b) => a.fecha - b.fecha);
 }
 
 
-// El array de artículos
+// Array de objetos. Cada objeto es un artículo con nombre, precio, fecha y categoría.
 const articulos = [
   {
     nombre: "Camiseta",
