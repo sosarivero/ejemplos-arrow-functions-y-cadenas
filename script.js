@@ -17,7 +17,7 @@ function ropaAccesoriosComprables(articulos, presupuesto) {
     return articulo.precio < presupuesto;
   });
   
-  // Filtra el resultado anterior. Esta vez según filtra artículos que tengan el valor "Ropa" o "Accesorios" en su clave accesorios.
+  // Filtra el resultado anterior. Esta vez filtra según artículos que tengan el valor "Ropa" o "Accesorios" en su clave accesorios.
   const ropaAccesorios = comprables.filter(function (articulo) {
     return articulo.categoria === "Ropa" || articulo.categoria === "Accesorios";
   });
@@ -39,7 +39,7 @@ function conFlechas(articulos, presupuesto) {
   // Primero filtra todos los artículos en función de si sus precios son menores al presupuesto.
   const comprables = articulos.filter((articulo) => articulo.precio < presupuesto);
 
-  // Filtra el resultado anterior. Esta vez según filtra artículos que tengan el valor "Ropa" o "Accesorios" en su clave accesorios.
+  // Filtra el resultado anterior. Esta vez filtra según artículos que tengan el valor "Ropa" o "Accesorios" en su clave accesorios.
   const ropaAccesorios = comprables.filter((articulo) => articulo.categoria === "Ropa" || articulo.categoria === "Accesorios");
 
   // Ordena el resultado anterior según sus fechas.
